@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { CustomThemeProvider } from "@/components/custom-theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
@@ -23,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body className={twMerge(notoSansKR.className)}>
-        <CustomThemeProvider>{children}</CustomThemeProvider>
+        <CustomThemeProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </CustomThemeProvider>
       </body>
     </html>
   );
