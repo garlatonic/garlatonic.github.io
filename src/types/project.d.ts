@@ -10,9 +10,15 @@ type Project = {
   link: string; // 배포 링크
   githubLink: string; // GitHub 링크
   thumbnail: string; // 썸네일 이미지 경로 또는 URL
+  detailImages: string[]; // 상세 페이지에서 사용할 이미지 경로 또는 URL 목록
   skills: string[]; // 사용 기술 스택
   role: string[]; // 맡은 역할 및 주요 기여
   troubleshooting?: TroubleShooting[]; // 트러블슈팅 목록
+  video?: {
+    src: string; // 비디오 파일 경로 또는 URL
+    type: string; // 비디오 MIME 타입 (예: "video/mp4")
+  };
+  videoThumbnail?: string; // 비디오 썸네일 이미지 경로 또는 URL
 };
 
 type TroubleShooting = {
