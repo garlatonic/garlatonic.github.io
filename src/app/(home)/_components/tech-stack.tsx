@@ -5,7 +5,6 @@ const TECH_STACK_LINES = [
   "Next.js / React",
   "TypeScript / JavaScript",
   "Tailwind CSS",
-  "Zustand",
   "Zod",
   "TanStack Query",
   "Zustand",
