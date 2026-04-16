@@ -10,7 +10,7 @@ export function useMousePosition() {
 
   const handleMouseOver = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
-    if (target.tagName === "A" || target.closest("a")) {
+    if (target.tagName === "A" || target.closest("a") || target.tagName === "BUTTON" || target.closest("button")) {
       setCursor("pointer");
     } else {
       setCursor("default");
