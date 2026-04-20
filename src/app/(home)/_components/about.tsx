@@ -3,6 +3,8 @@
 import SectionTitle from "@/components/common/section-title";
 import SectionWrapper from "@/components/common/section-wrapper";
 import { Separator } from "@/components/ui/separator";
+import { TYPOGRAPHY } from "@/constants/typography";
+import { twMerge } from "tailwind-merge";
 
 const skillGroups = [
   {
@@ -34,14 +36,8 @@ const skillGroups = [
   {
     title: "협업 도구",
     description: "협업과 커뮤니케이션에 사용하는 도구입니다.",
-    items: [
-      "Notion",
-      "Figma",
-      "Slack",
-      "Photoshop",
-      "Swagger",
-    ],
-  }
+    items: ["Notion", "Figma", "Slack", "Photoshop", "Swagger"],
+  },
 ];
 
 export default function About({ className }: { className?: string }) {
@@ -54,16 +50,29 @@ export default function About({ className }: { className?: string }) {
       <div className="about-content flex flex-col xl:flex-row gap-5 md:gap-10 xl:gap-30">
         <h3 className="about-title flex flex-col font-extrabold whitespace-nowrap">
           <span className="about-mask block overflow-hidden">
-            <span className="about-active h-full block text-2xl lg:text-3xl leading-relaxed">
+            <span
+              className={twMerge(
+                TYPOGRAPHY.about.introLead,
+                "about-active h-full block",
+              )}
+            >
               사용자의 편의를 설계하는
             </span>
           </span>
-          <span className="block bg-background text-4xl lg:text-5xl leading-relaxed">
+          <span
+            className={twMerge(
+              TYPOGRAPHY.about.introHighlight,
+              "block bg-background",
+            )}
+          >
             프론트엔드 개발자
           </span>
         </h3>
         <div className="about-body flex-1 space-y-10">
-          <div className="space-y-5 text-lg md:text-xl leading-relaxed break-keep text-muted-foreground font-medium lg:[&>p>br]:inline">
+          <div className={twMerge(
+            TYPOGRAPHY.about.description,
+            "space-y-5 lg:[&>p>br]:inline"
+          )}>
             <p className="about-desc">
               3년간의{" "}
               <span className="about-highlight text-foreground font-bold">

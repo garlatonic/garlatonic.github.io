@@ -1,8 +1,10 @@
-"use client";;
+"use client";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { FileTextIcon } from "lucide-react";
+import { twMerge } from "tailwind-merge";
+import { TYPOGRAPHY } from "@/constants/typography";
 
 export default function ProjectItem({
   project,
@@ -18,23 +20,38 @@ export default function ProjectItem({
     >
       <div className="space-y-4 md:space-y-5 lg:space-y-6 lg:col-span-2 lg:flex lg:flex-col lg:justify-center">
         <div className="project-header space-y-2 xl:space-y-5">
-          <p className="project-category text-xs md:text-sm font-medium text-muted-foreground tracking-wide">
+          <p
+            className={twMerge(TYPOGRAPHY.project.category, "project-category")}
+          >
             {project.number.toString().padStart(2, "0")} / {project.category}
           </p>
-          <h3 className="project-title text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold leading-tight break-keep">
+          <h3
+            className={twMerge(
+              TYPOGRAPHY.project.title,
+              "project-title break-keep",
+            )}
+          >
             {project.name}
           </h3>
         </div>
         <Separator />
         <div className="project-body space-y-2 xl:space-y-5">
-          <p className="project-overview text-xs md:text-sm lg:text-base xl:text-lg font-medium text-muted-foreground break-keep">
+          <p
+            className={twMerge(
+              TYPOGRAPHY.project.description,
+              "project-overview break-keep",
+            )}
+          >
             {project.overview}
           </p>
           <ul className="flex flex-wrap gap-2">
             {project.skills.map((skill, index) => (
               <li
                 key={index}
-                className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-muted-foreground/10 text-xs md:text-sm lg:text-base font-medium"
+                className={twMerge(
+                  TYPOGRAPHY.project.skillBadge,
+                  "px-1.5 sm:px-2 py-0.5 sm:py-1 bg-muted-foreground/10",
+                )}
               >
                 {skill}
               </li>
@@ -46,7 +63,7 @@ export default function ProjectItem({
           <Button
             variant="outline"
             size="lg"
-            className="cursor-pointer"
+            className={TYPOGRAPHY.ui.button}
             onClick={() => onOpenModal(project.slug)}
           >
             <FileTextIcon />

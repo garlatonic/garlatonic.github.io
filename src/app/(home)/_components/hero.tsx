@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge";
 import Header from "@/components/common/header";
 import { IBM_Plex_Mono } from "next/font/google";
 import { AsteriskIcon } from "lucide-react";
+import { TYPOGRAPHY } from "@/constants/typography";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -24,7 +25,12 @@ export default function Hero({ className }: { className?: string }) {
       >
         <div className="inner h-full flex  items-center">
           <Header className={twMerge(ibmPlexMono.className)} isMain />
-          <h1 className="flex flex-col text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-snug pointer-events-none">
+          <h1
+            className={twMerge(
+              TYPOGRAPHY.hero.title,
+              "flex flex-col pointer-events-none",
+            )}
+          >
             <span>Hello, I&rsquo;m</span>
             <span>SangA Park.</span>
           </h1>
