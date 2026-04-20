@@ -9,9 +9,9 @@ export const TYPOGRAPHY = {
   },
   about: {
     introLead:
-      "text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold leading-relaxed",
+      "text-base sm:text-lg md:text-xl lg:text-2xl font-extrabold",
     introHighlight:
-      "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold",
+      "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-relaxed",
     description:
       "text-base sm:text-lg md:text-xl font-medium leading-relaxed break-keep text-muted-foreground",
     skillTitle: "text-lg sm:text-xl md:text-2xl font-bold text-foreground",
@@ -30,8 +30,8 @@ export const TYPOGRAPHY = {
   },
   footer: {
     headline:
-      "text-6xl sm:text-7xl md:text-8xl font-black uppercase leading-none text-accent",
-    link: "text-accent font-medium text-2xl md:text-4xl",
+      "text-6xl sm:text-7xl md:text-8xl font-black uppercase leading-none",
+    link: "font-medium text-2xl md:text-4xl",
   },
 
   // ------- project detail page -------

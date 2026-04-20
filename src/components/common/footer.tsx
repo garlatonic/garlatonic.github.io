@@ -26,7 +26,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="footer bg-primary">
+    <footer className="footer bg-accent/50">
       <div className="inner flex flex-col lg:flex-row py-15 md:py-20 justify-between gap-15">
         <h2
           className={twMerge(
@@ -35,7 +35,7 @@ export default function Footer() {
           )}
         >
           <span>get in</span>
-          <span className="text-transparent text-outline">touch</span>
+          <span className="text-outline">touch</span>
         </h2>
         <Separator className="lg:hidden" />
         <div className="flex flex-col gap-6 lg:flex-none flex-1">
