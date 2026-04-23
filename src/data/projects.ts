@@ -62,6 +62,7 @@ export const projects: Project[] = [
             after: "/img/img_naeconbu_troubleshooting_planner_after_02.png",
           },
         ],
+        codeSnippet: "/img/img_naeconbu_troubleshooting_planner_code.svg",
       },
       {
         title: "검색 API 과호출 최적화",
@@ -70,33 +71,7 @@ export const projects: Project[] = [
         solution:
           "연속된 입력값에 <b>Debounce 기법을 적용해 검색 요청을 제어</b>했고, <b>평균 API 호출 횟수를 6회에서 1회로 줄여 서버 리소스를 83% 절감</b>했습니다. 이를 통해 사용자는 더 안정적인 검색 경험을 얻고, 서비스는 불필요한 요청을 줄일 수 있었습니다.",
         keywords: ["Debounce", "성능 최적화", "API 요청 제어"],
-        codeSnippet: `// src/hooks/useDebounce.ts
-export function useDebounce<T>(value: T, delay = 300) {
-  const [debounced, setDebounced] = useState(value);
-
-  useEffect(() => {
-    const handler = setTimeout(() => setDebounced(value), delay);
-    return () => clearTimeout(handler); // 새 입력 시 이전 타이머 취소
-  }, [value, delay]);
-
-  return debounced;
-}
-
-// src/components/planner/sidebar/SearchPlaces.tsx
-const [term, setTerm] = useState(defaultValue ?? "");
-
-// 500ms 동안 입력이 없을 때만 실제 검색 실행
-const debouncedTerm = useDebounce(term, 500);
-
-// API 호출은 debouncedTerm 기준으로만 발생
-const { results, isLoading } = useSearchPlace(debouncedTerm, defaultCoords, scheduleType);
-
-// 입력 이벤트는 즉시 반영 (UX 유지), 검색은 debounce 적용
-<Input
-  value={term}
-  onChange={(e) => setTerm(e.target.value)} // 매 입력마다 term 업데이트
-/>
-        `,
+        codeSnippet: "/img/img_naeconbu_troubleshooting_debounce_code.svg",
       },
       {
         title: "Tanstack Query 캐싱 전략 적용",
@@ -111,6 +86,7 @@ const { results, isLoading } = useSearchPlace(debouncedTerm, defaultCoords, sche
             after: "/img/img_naeconbu_troubleshooting_cache_after.png",
           },
         ],
+        codeSnippet: "/img/img_naeconbu_troubleshooting_cache_code.svg",
       },
     ],
   },
@@ -155,62 +131,7 @@ const { results, isLoading } = useSearchPlace(debouncedTerm, defaultCoords, sche
         solution:
           "<b>오늘과 어제의 해시태그 데이터를 날짜 범위 기준으로 각각 조회</b>한 뒤, <b>태그별 랭킹과 증감률을 계산해 시각화용 데이터로 가공</b>했습니다. 이를 통해 <b>실시간 TOP 3 감정과 트렌드 태그</b>를 한눈에 보여줄 수 있었고, 사용자는 커뮤니티 분위기와 감정 흐름 변화를 더 직관적으로 파악할 수 있었습니다.",
         keywords: ["데이터 시각화", "트렌드 태그", "증감률 계산", "Supabase"],
-        codeSnippet: `
-export default async function TodayFeels() {
-  // 1. 오늘/어제 날짜 범위 계산
-  const todayStart = new Date();
-  todayStart.setHours(0, 0, 0, 0);
-  const todayEnd = new Date();
-  todayEnd.setHours(23, 59, 59, 999);
-
-  const yesterdayStart = new Date(todayStart);
-  yesterdayStart.setDate(yesterdayStart.getDate() - 1);
-  const yesterdayEnd = new Date(todayEnd);
-  yesterdayEnd.setDate(yesterdayEnd.getDate() - 1);
-
-  const supabase = await createClient();
-
-  // 2. 오늘/어제 해시태그 데이터 조회
-  const { data: todayHashtags } = await supabase
-    .from("hashtags")
-    .select("content, created_at")
-    .gte("created_at", todayStart.toISOString())
-    .lte("created_at", todayEnd.toISOString());
-
-  const { data: yesterdayHashtags } = await supabase
-    .from("hashtags")
-    .select("content, created_at")
-    .gte("created_at", yesterdayStart.toISOString())
-    .lte("created_at", yesterdayEnd.toISOString());
-
-  // 3. 태그별 랭킹 계산
-  const todayRanks = setTrendTagsRank(todayHashtags || [], 3);
-  const yesterdayRanks = setTrendTagsRank(
-    yesterdayHashtags || [],
-    yesterdayHashtags?.length ?? 0
-  );
-
-  // 4. 어제 대비 퍼센트 변화 계산
-  const calculatePercentageChange = (tag: string, todayCount: number) => {
-    const yesterdayItem = yesterdayRanks.find((item) => item.tag === tag);
-    const yesterdayCount = yesterdayItem ? yesterdayItem.count : 0;
-
-    if (yesterdayCount === 0) return todayCount > 0 ? "+100%" : "0%";
-
-    const change = ((todayCount - yesterdayCount) / yesterdayCount) * 100;
-    const sign = change > 0 ? "+" : "";
-    return sign + Math.round(change) + "%";
-  };
-
-  // 5. 시각화용 데이터 구조
-  const ranksWithPercentage = todayRanks.map((rank) => ({
-    ...rank,
-    percentageChange: calculatePercentageChange(rank.tag, rank.count),
-  }));
-
-  return ranksWithPercentage;
-}
-        `,
+        codeSnippet: "/img/img_updown_troubleshooting_visualization_code.svg",
       },
     ],
   },
@@ -249,6 +170,17 @@ export default async function TodayFeels() {
       "프로젝트 전반 방향 조율 및 기반 레이아웃 구현",
       "검색 시스템 설계 전체 구현",
       "성능 최적화 및 상태별 UI 안정성 개선",
+    ],
+    troubleshooting: [
+      {
+        title: "React Compiler 도입으로 렌더링 성능 개선",
+        problem:
+          "검색 결과 페이지에서 검색어 입력 시 <b>상태가 변경될 때마다, 하위의 모든 게시글 컴포넌트가 불필요하게 리렌더링되는 문제가 있었습니다.</b> useMemo/useCallback을 수동으로 관리하기에는 컴포넌트 수가 많아 일관된 최적화 적용이 어려웠습니다.",
+        solution:
+          "<b>React Compiler를 도입해 컴파일 단계에서 자동 메모이제이션을 적용</b>했습니다. 수동으로 useMemo/useCallback을 작성하지 않아도 컴포넌트별 불필요한 리렌더링이 방지되어 검색 결과 목록의 반응 속도가 개선되었습니다.",
+        keywords: ["React Compiler", "렌더링 최적화", "성능 개선"],
+        codeSnippet: "/img/img_chickengalaxy_troubleshooting_reactcompiler_code.svg",
+      },
     ],
   },
   {

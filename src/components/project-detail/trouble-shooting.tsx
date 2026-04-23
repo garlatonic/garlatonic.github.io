@@ -61,9 +61,13 @@ export default function TroubleShooting({
           </div>
         )}
         {troubleShooting.codeSnippet && (
-          <CodeBlock
-            fileName={`${slug}-solution.js`}
-            code={troubleShooting.codeSnippet}
+          <Image
+            src={troubleShooting.codeSnippet}
+            alt="Code Snippet"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-full h-auto border"
           />
         )}
       </div>

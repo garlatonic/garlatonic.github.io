@@ -68,14 +68,15 @@ export default function ProjectItem({
           </div>
           <Separator />
           <div className="project-links flex gap-3">
-            <Button
-              variant="outline"
-              size="lg"
-              className={TYPOGRAPHY.ui.button}
+            <div
+              className={twMerge(
+                TYPOGRAPHY.ui.button,
+                "inline-flex shrink-0 items-center justify-center rounded-4xl border bg-clip-padding whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:bg-transparent dark:hover:bg-input/30 h-10 gap-1.5 px-4 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 text-xs sm:text-sm font-medium"
+              )}
             >
               <FileTextIcon />
               프로젝트 상세보기
-            </Button>
+            </div>
           </div>
         </div>
         <div className="project-thumbnail relative aspect-750/500 row-start-1 lg:col-span-3 overflow-hidden h-auto border lg:row-start-auto rounded-lg md:rounded-xl lg:rounded-2xl">
