@@ -13,16 +13,38 @@ const bodoniModa = Bodoni_Moda({
 export default function SectionTitle({
   className,
   title,
+  isSubPage,
+  children,
 }: {
   className?: string;
   title: string;
+  isSubPage?: boolean;
+  children?: React.ReactNode;
 }) {
+  if (isSubPage) {
+    return (
+      <div className="space-y-10">
+        <h2
+          className={twMerge(
+            "section-title inline-block pr-10 text-3xl font-semibold italic lg:text-5xl",
+            bodoniModa.className,
+            className,
+          )}
+        >
+          {title}
+        </h2>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <div className={twMerge("relative", className)}>
       <h2
         className={twMerge(
           "section-title text-muted bg-background inline-block pr-10 text-5xl font-semibold italic lg:text-8xl",
           bodoniModa.className,
+          className,
         )}
       >
         {title}
