@@ -58,6 +58,11 @@ interface ResumeProjectItem {
   role: string[];
 }
 
+interface ResumeIntroductionDetailItem {
+  title?: string;
+  detail: string;
+}
+
 interface ResumeData {
   name: string;
   slogan: string;
@@ -74,6 +79,7 @@ interface ResumeData {
   portfolio: ResumePortfolioItem[];
   career: ResumeCareerItem[];
   projects: ResumeProjectItem[];
+  introductionDetail: ResumeIntroductionDetailItem[];
 }
 
 // Career 관련 타입 정의
