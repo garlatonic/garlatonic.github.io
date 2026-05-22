@@ -22,7 +22,17 @@ export default function Header({
         <Link href="/" className="logo text-lg font-black tracking-wide">
           garlatonic.cv
         </Link>
-        <ThemeButton />
+        <div className="flex items-center gap-6">
+          <Link
+            href="/resume"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium transition-opacity hover:opacity-60"
+          >
+            resume
+          </Link>
+          <ThemeButton />
+        </div>
       </nav>
     </header>
   );

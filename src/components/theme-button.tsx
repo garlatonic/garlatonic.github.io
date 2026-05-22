@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useIsMounted } from "@/hooks/useIsMounted";
 
-export default function ThemeButton() {
+export default function ThemeButton({ className }: { className?: string }) {
   const { theme, setTheme } = useTheme();
   const mounted = useIsMounted();
 
@@ -31,6 +31,7 @@ export default function ThemeButton() {
     <Button
       variant="outline"
       size="icon"
+      className={className}
       onClick={() => handleThemeChange(theme)}
     >
       {theme === "light" && <SunDimIcon className="size-5" />}

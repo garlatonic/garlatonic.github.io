@@ -4,7 +4,6 @@ import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { CustomThemeProvider } from "@/components/custom-theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import MousePointer from "@/components/common/mouse-pointer";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
@@ -47,7 +46,6 @@ export default function RootLayout({
         <CustomThemeProvider>
           <TooltipProvider>
             {children}
-            <MousePointer />
           </TooltipProvider>
         </CustomThemeProvider>
       </body>
