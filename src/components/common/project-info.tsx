@@ -18,8 +18,7 @@ export default function ProjectInfo({
   if (isList) {
     return (
       <Link
-        href={project.link}
-        target="_blank"
+        href={`/projects/${project.slug}`}
         className="grid w-full gap-x-15 gap-y-6 text-left transition-opacity hover:opacity-90 md:gap-y-8 lg:grid-cols-5 lg:gap-y-10"
       >
         <div className="space-y-4 md:space-y-5 lg:col-span-2 lg:flex lg:flex-col lg:justify-center lg:space-y-6">
