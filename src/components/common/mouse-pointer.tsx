@@ -58,7 +58,7 @@ export default function MousePointer() {
     <div
       style={{ left: x, top: y }}
       className={twMerge(
-        "pointer-events-none fixed z-50 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white mix-blend-difference transition-[width,height] duration-150 ease-out",
+        "pointer-events-none fixed z-100 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white mix-blend-difference transition-[width,height] duration-150 ease-out",
         cursor === "pointer" && "size-10",
       )}
     >
