@@ -39,16 +39,16 @@ export default function CareerProjectCard({
         <h5 className="text-3xs font-semibold tracking-[0.16em] text-zinc-500 uppercase">
           담당 업무
         </h5>
-        {project.responsibilities.map((responsibility, index) => (
-          <section key={responsibility.title} className="space-y-1.5">
-            <h6 className="text-2xs font-medium">{responsibility.title}</h6>
+        {project.responsibilities.map((r) => (
+          <section key={r.title} className="space-y-1.5">
+            <h6 className="text-2xs font-medium">{r.title}</h6>
             <ul className="text-2xs space-y-0.5 leading-relaxed text-zinc-700">
-              {responsibility.details.map((detail, detailIndex) => (
+              {r.details.map((d, idx) => (
                 <li
-                  key={detailIndex}
+                  key={idx}
                   className="before:mr-1 before:content-['-']"
                 >
-                  {detail}
+                  {d}
                 </li>
               ))}
             </ul>
@@ -61,10 +61,10 @@ export default function CareerProjectCard({
         </h5>
         {!isEducation && (
           <ul className="text-2xs space-y-0.5 leading-relaxed text-zinc-700">
-            {project.achievements.map((achievement, index) => (
+            {project.achievements.map((a, idx) => (
               <li
-                key={index}
-                dangerouslySetInnerHTML={{ __html: achievement }}
+                key={idx}
+                dangerouslySetInnerHTML={{ __html: a }}
                 className="before:mr-1 before:content-['-']"
               />
             ))}
@@ -72,13 +72,13 @@ export default function CareerProjectCard({
         )}
         {isEducation && (
           <div className="space-y-4">
-            {project.achievements.map((achievement, index) => {
-              if (typeof achievement === "string") {
+            {project.achievements.map((a, idx) => {
+              if (typeof a === "string") {
                 return null;
               }
 
               return (
-                <CareerAchievementBlock key={index} achievement={achievement} />
+                <CareerAchievementBlock key={idx} achievement={a} />
               );
             })}
           </div>

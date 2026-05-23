@@ -58,7 +58,12 @@ interface ResumeProjectItem {
   role: string[];
 }
 
-interface ResumeIntroductionDetailItem {
+interface ResumeIntroductionDetails {
+  title: string;
+  detail: ResumeIntroductionDetailsItem[];
+}
+
+interface ResumeIntroductionDetailsItem {
   title?: string;
   detail: string;
 }
@@ -71,7 +76,7 @@ interface ResumeData {
     common: ResumeMetaCommonItem[];
     links: ResumeMetaLinkItem[];
   };
-  introduction: string[];
+  simpleIntroduction: string[];
   techStack: string[];
   coreCompetencies: string[];
   education: ResumeEducationItem[];
@@ -79,7 +84,7 @@ interface ResumeData {
   portfolio: ResumePortfolioItem[];
   career: ResumeCareerItem[];
   projects: ResumeProjectItem[];
-  introductionDetail: ResumeIntroductionDetailItem[];
+  introductionDetails: ResumeIntroductionDetails[];
 }
 
 // Career 관련 타입 정의

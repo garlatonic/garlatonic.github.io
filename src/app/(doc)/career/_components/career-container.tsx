@@ -20,7 +20,8 @@ export default function CareerContainer() {
               <p className="text-3xs text-muted-foreground">{c.period}</p>
               <p className="text-3xs text-muted-foreground">
                 {c.position.team}
-                {!c.isEducation && ` · ${c.position.grade} · ${c.position.term}`}
+                {!c.isEducation &&
+                  ` · ${c.position.grade} · ${c.position.term}`}
               </p>
             </div>
             <p className="text-2xs text-muted-foreground border-t pt-3">
@@ -41,7 +42,9 @@ export default function CareerContainer() {
               <div className="space-y-4">
                 {c.keyAchievements.map((k) => (
                   <section key={k.title} className="space-y-1.5">
-                    <h4 className="text-2xs font-medium">{k.title}</h4>
+                    {!c.isEducation && (
+                      <h4 className="text-2xs font-medium">{k.title}</h4>
+                    )}
                     <ul className="text-2xs space-y-0.5 leading-relaxed text-zinc-700">
                       {k.details.map((d, i) => (
                         <li

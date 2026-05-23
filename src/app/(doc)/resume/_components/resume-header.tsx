@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function ResumeHeader({
   name,
   meta,
-  introduction,
-}: Pick<ResumeData, "name" | "jobTitle" | "meta" | "introduction">) {
+  simpleIntroduction,
+}: Pick<ResumeData, "name" | "jobTitle" | "meta" | "simpleIntroduction">) {
   return (
     <div className="border-t-primary space-y-4 border-t-2 border-b py-4">
       <header className="border-b pb-4">
@@ -48,7 +48,7 @@ export default function ResumeHeader({
       <section>
         <h2 className="sr-only">자기소개</h2>
         <div className="space-y-1">
-          {introduction.map((paragraph, idx) => (
+          {simpleIntroduction.map((paragraph, idx) => (
             <p
               key={idx}
               className="text-2xs leading-normal text-zinc-700"
