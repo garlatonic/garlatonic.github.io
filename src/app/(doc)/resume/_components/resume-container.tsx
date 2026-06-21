@@ -44,19 +44,24 @@ export default function ResumeContainer() {
           {data.introductionDetails.map((i) => (
             <section
               key={i.title}
-              className="not-last:border-b not-last:pb-4 border-dashed space-y-4"
+              className="space-y-4 border-dashed not-last:border-b not-last:pb-4"
             >
-              <h4 className="mb-4 text-sm font-semibold leading-none">{i.title}</h4>
+              <h4 className="mb-4 text-sm leading-none font-semibold">
+                {i.title}
+              </h4>
               {i.detail.map((d, idx) => (
                 <article key={idx} className="space-y-1">
                   {d.title && (
                     <h5 className="text-2xs font-semibold">[{d.title}]</h5>
                   )}
                   <div className="space-y-1">
-                    <p
-                      className="text-foreground/90 text-2xs [&>b]:text-foreground leading-relaxed [&>b]:font-medium"
-                      dangerouslySetInnerHTML={{ __html: d.detail }}
-                    />
+                    {d.detail.map((line, lineIdx) => (
+                      <p
+                        key={lineIdx}
+                        className="text-foreground/90 text-2xs [&>b]:text-foreground leading-relaxed [&>b]:font-medium"
+                        dangerouslySetInnerHTML={{ __html: line }}
+                      />
+                    ))}
                   </div>
                 </article>
               ))}

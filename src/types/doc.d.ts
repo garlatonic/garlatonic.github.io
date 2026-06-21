@@ -78,7 +78,7 @@ interface ResumeIntroductionDetails {
 // 지원자 자기소개서 소문단 (각 대문단 내에서 구체적인 경험, 사례 등을 설명)
 interface ResumeIntroductionDetailsItem {
   title?: string;
-  detail: string;
+  detail: string[];
 }
 
 interface ResumeData {
