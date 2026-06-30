@@ -6,6 +6,7 @@ import { PrinterIcon } from "lucide-react";
 
 export default function DocPage({ children }: { children: React.ReactNode }) {
   const docRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== "development") {
@@ -26,7 +27,11 @@ export default function DocPage({ children }: { children: React.ReactNode }) {
   }, []);
 
   const handlePrint = () => {
-    window.print();
+    if (buttonRef.current) {
+      buttonRef.current.style.display = "none";
+      window.print();
+      buttonRef.current.style.display = "block";
+    }
   };
 
   return (
@@ -38,7 +43,7 @@ export default function DocPage({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       {process.env.NODE_ENV === "development" && (
-        <div className="fixed right-5 bottom-5">
+        <div className="fixed right-5 bottom-5" ref={buttonRef}>
           <Button
             size="icon"
             onClick={handlePrint}
