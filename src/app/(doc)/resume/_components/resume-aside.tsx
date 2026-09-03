@@ -30,10 +30,11 @@ export default function ResumeAside({
       <ResumeItem title="Tech Stack">
         <ul className="flex flex-wrap gap-1">
           {techStack.map((s) => (
-            <li key={s}>
-              <span className="text-2xs bg-muted text-muted-foreground border px-2 py-1 font-medium">
-                {s}
-              </span>
+            <li
+              key={s}
+              className="text-2xs bg-muted text-muted-foreground border px-2 py-1 font-medium"
+            >
+              {s}
             </li>
           ))}
         </ul>
