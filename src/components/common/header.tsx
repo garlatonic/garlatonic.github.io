@@ -23,7 +23,7 @@ export default function Header({
           garlatonic.cv
         </Link>
         <div className="flex items-center gap-6">
-          <Link
+          {/* <Link
             href="/resume"
             target="_blank"
             rel="noopener noreferrer"
@@ -38,7 +38,7 @@ export default function Header({
             className="text-sm font-medium transition-opacity hover:opacity-60"
           >
             career
-          </Link>
+          </Link> */}
           <ThemeButton />
         </div>
       </nav>
