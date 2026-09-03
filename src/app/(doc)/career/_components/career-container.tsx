@@ -38,38 +38,42 @@ export default function CareerContainer() {
                 ))}
               </ul>
             </CareerItem>
-            <CareerItem title={c?.isEducation ? "수료 성과" : "핵심 성과"}>
-              <div className="space-y-4">
-                {c.keyAchievements.map((k) => (
-                  <section key={k.title} className="space-y-1.5">
-                    {!c.isEducation && (
-                      <h4 className="text-2xs font-medium">{k.title}</h4>
-                    )}
-                    <ul className="text-2xs space-y-0.5 leading-relaxed text-zinc-700">
-                      {k.details.map((d, i) => (
-                        <li
-                          key={i}
-                          className="before:mr-1 before:content-['-']"
-                        >
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                ))}
-              </div>
-            </CareerItem>
-            <CareerItem title="프로젝트">
-              <div className="space-y-4">
-                {c.projects.map((p) => (
-                  <CareerProjectCard
-                    key={p.title}
-                    project={p}
-                    isEducation={c.isEducation}
-                  />
-                ))}
-              </div>
-            </CareerItem>
+            {c.keyAchievements.length > 0 && (
+              <CareerItem title={c?.isEducation ? "수료 성과" : "핵심 성과"}>
+                <div className="space-y-4">
+                  {c.keyAchievements.map((k) => (
+                    <section key={k.title} className="space-y-1.5">
+                      {!c.isEducation && (
+                        <h4 className="text-2xs font-medium">{k.title}</h4>
+                      )}
+                      <ul className="text-2xs space-y-0.5 leading-relaxed text-zinc-700">
+                        {k.details.map((d, i) => (
+                          <li
+                            key={i}
+                            className="before:mr-1 before:content-['-']"
+                          >
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ))}
+                </div>
+              </CareerItem>
+            )}
+            {c.projects.length > 0 && (
+              <CareerItem title="프로젝트">
+                <div className="space-y-4">
+                  {c.projects.map((p) => (
+                    <CareerProjectCard
+                      key={p.title}
+                      project={p}
+                      isEducation={c.isEducation}
+                    />
+                  ))}
+                </div>
+              </CareerItem>
+            )}
           </div>
         </article>
       ))}

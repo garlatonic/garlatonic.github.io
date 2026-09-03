@@ -1,6 +1,34 @@
 export const careerData: CareerData = {
   career: [
     {
+      company: "(주)모리엔티드",
+      period: "2026.07 – 재직 중",
+      position: {
+        team: "글로벌마케팅팀",
+        grade: "대리",
+        term: "정규직",
+      },
+      summary:
+        "Shopify 기반 커머스 구축을 위한 테마 개발 및 커스터마이징 방식을 검토하고, 향후 구축 업무를 위한 개발·협업 프로세스를 정리하고 있습니다.",
+      responsibilities: [
+        "Shopify 기반 커머스 구축을 위한 테마 개발 방식 및 기능 검토",
+        "Liquid 기반 Shopify 테마 커스터마이징 및 기능 구현",
+        "Shopify 구축 프로세스 및 개발·디자인 협업 기준 정리",
+        "Shopify 테마 개발 환경 구성 및 버전 관리",
+      ],
+      keyAchievements: [
+        {
+          title: "Shopify 구축 프로세스 및 협업 기준 정리",
+          details: [
+            "Shopify 테마 기반 구축 방식에 맞춰 기획·디자인·개발 단계별 업무 범위 및 진행 프로세스 정리",
+            "테마의 기본 제공 기능과 커스터마이징 범위를 고려한 구축 단계별 확인 항목 정리",
+            "개발 과정에서 필요한 디자인 시안 작업 및 전달 기준을 문서화하여 향후 Shopify 구축을 위한 협업 기준 마련",
+          ],
+        },
+      ],
+      projects: [],
+    },
+    {
       company: "케이에이치이노베이션",
       period: "2022.05 – 2025.04",
       position: {
