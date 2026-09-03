@@ -2,6 +2,32 @@ import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import ThemeButton from "../theme-button";
 
+function NavigateCareer() {
+  const isDev = process.env.NODE_ENV === "development";
+
+  if (!isDev) return null;
+  return (
+    <>
+      <Link
+        href="/resume"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm font-medium transition-opacity hover:opacity-60"
+      >
+        resume
+      </Link>
+      <Link
+        href="/career"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm font-medium transition-opacity hover:opacity-60"
+      >
+        career
+      </Link>
+    </>
+  );
+}
+
 export default function Header({
   className,
   isMain,
@@ -23,22 +49,7 @@ export default function Header({
           garlatonic.cv
         </Link>
         <div className="flex items-center gap-6">
-          {/* <Link
-            href="/resume"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium transition-opacity hover:opacity-60"
-          >
-            resume
-          </Link>
-          <Link
-            href="/career"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium transition-opacity hover:opacity-60"
-          >
-            career
-          </Link> */}
+          <NavigateCareer />
           <ThemeButton />
         </div>
       </nav>
