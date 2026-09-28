@@ -5,6 +5,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   :root {
     color-scheme: light;
+    font-size: 87.5%;
     --background: #ebebeb;
     --foreground: #202020;
     --body: #282828;
@@ -21,8 +22,8 @@ export const GlobalStyles = createGlobalStyle`
     background: var(--background);
     color: var(--body);
     font-family: var(--font-noto-serif), "Batang", serif;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 1rem;
+    line-height: 1.7142857;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 { margin: 0; font-size: inherit; font-weight: inherit; }
@@ -37,6 +38,6 @@ export const GlobalStyles = createGlobalStyle`
     :root { --page-x: 24px; --page-y: 28px; }
   }
   @media (max-width: 539px) {
-    :root { --page-x: 20px; --page-y: 24px; }
+    :root { font-size: 75%; --page-x: 20px; --page-y: 24px; }
   }
 `;
