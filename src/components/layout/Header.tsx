@@ -3,7 +3,7 @@
 import * as S from "@/styles/components";
 
 import Link from "next/link";
-import { useLayoutEffect, useRef } from "react";
+import { scrollToTop } from "@/components/layout/PageTransition";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -12,30 +12,15 @@ const links = [
   { href: "/notes/", label: "Notes" },
 ];
 
-function scrollToTop() {
-  document.getElementById("main-content")?.focus({ preventScroll: true });
-  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-}
-
 export default function Header() {
   const pathname = usePathname();
-  const pendingDestination = useRef<string | null>(null);
   const currentPath = pathname.replace(/\/$/, "") || "/";
-
-  useLayoutEffect(() => {
-    if (pendingDestination.current !== currentPath) return;
-    pendingDestination.current = null;
-    scrollToTop();
-  }, [currentPath]);
 
   function handleNavigate(href: string, event: { preventDefault: () => void }) {
     const destination = href.replace(/\/$/, "") || "/";
     if (destination === currentPath) {
       event.preventDefault();
-      pendingDestination.current = null;
       scrollToTop();
-    } else {
-      pendingDestination.current = destination;
     }
   }
 

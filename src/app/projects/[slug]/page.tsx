@@ -55,7 +55,7 @@ export default async function ProjectDetail({ params }: Props) {
             </S.Challenge>
           ))}
         </S.ContentSection>
-        <S.BackLink><Link href="/projects/">← 모든 프로젝트</Link></S.BackLink>
+        <S.BackLink><Link href="/projects/" scroll={false}>← 모든 프로젝트</Link></S.BackLink>
       </S.ProjectDetailBody>
     </S.PageContent>
   );

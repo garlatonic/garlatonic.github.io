@@ -13,7 +13,7 @@ export default function Projects() {
         {projects.map((project) => (
           <li key={project.slug}>
             <S.ProjectTitle>
-              <h2><Link href={`/projects/${project.slug}/`}>{project.title}</Link></h2>
+              <h2><Link href={`/projects/${project.slug}/`} scroll={false}>{project.title}</Link></h2>
               <span>{project.period}</span>
             </S.ProjectTitle>
             <p>{project.description}</p>
