@@ -1,8 +1,24 @@
+import * as S from "@/styles/components";
 import type { Metadata } from "next";
-import "./globals.css";
+import { Baskervville, Noto_Serif_KR } from "next/font/google";
+import StyledComponentsRegistry from "@/styles/StyledComponentsRegistry";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
+
+const notoSerif = Noto_Serif_KR({
+  weight: ["400", "500", "600"],
+  display: "swap",
+  preload: false,
+  variable: "--font-noto-serif",
+});
+
+const baskervville = Baskervville({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-baskervville",
+});
 
 export const metadata: Metadata = {
   title: { default: "박상아 · SangA Park — Frontend Developer", template: "%s · 박상아" },
@@ -12,14 +28,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={baskervville.variable + " " + notoSerif.variable}>
       <body>
-        <a className="skip-link" href="#main-content">본문으로 바로가기</a>
-        <div className="site-shell">
-          <Header />
-          <PageTransition>{children}</PageTransition>
-          <Footer />
-        </div>
+        <StyledComponentsRegistry>
+          <S.SkipLink href="#main-content">본문으로 바로가기</S.SkipLink>
+          <S.SiteShell>
+            <Header />
+            <PageTransition>{children}</PageTransition>
+            <Footer />
+          </S.SiteShell>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+import * as S from "@/styles/components";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -23,39 +24,39 @@ export default async function ProjectDetail({ params }: Props) {
   if (!project) notFound();
 
   return (
-    <main id="main-content" className="page-content">
-      <h1>{project.title}</h1>
-      <div className="prose project-detail">
-        <p className="project-stack">{project.category} · {project.period}</p>
+    <S.PageContent id="main-content" aria-labelledby="page-title" tabIndex={-1}>
+      <S.Heading id="page-title">{project.title}</S.Heading>
+      <S.ProjectDetailBody>
+        <S.ProjectMeta>{project.category} · {project.period}</S.ProjectMeta>
         <p>{project.description}</p>
-        <p className="project-links">
+        <S.ProjectLinks>
           <a href={project.live}>배포 사이트 ↗</a>
           {project.repository && <a href={project.repository}>GitHub ↗</a>}
-        </p>
-        <section className="content-section">
-          <h2>프로젝트 소개</h2>
+        </S.ProjectLinks>
+        <S.ContentSection aria-labelledby="overview-title">
+          <h2 id="overview-title">프로젝트 소개</h2>
           {project.introduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-        </section>
-        <section className="content-section">
-          <h2>주요 역할</h2>
-          <ul className="role-list">{project.roles.map((role) => <li key={role}>{role}</li>)}</ul>
-        </section>
-        <section className="content-section">
-          <h2>사용 기술</h2>
+        </S.ContentSection>
+        <S.ContentSection aria-labelledby="roles-title">
+          <h2 id="roles-title">주요 역할</h2>
+          <S.RoleList>{project.roles.map((role) => <li key={role}>{role}</li>)}</S.RoleList>
+        </S.ContentSection>
+        <S.ContentSection aria-labelledby="stack-title">
+          <h2 id="stack-title">사용 기술</h2>
           <p>{project.stack.join(" · ")}</p>
-        </section>
-        <section className="content-section">
-          <h2>Challenge &amp; Solution</h2>
-          {project.challenges.map((challenge) => (
-            <section className="challenge" key={challenge.title}>
-              <h3>{challenge.title}</h3>
+        </S.ContentSection>
+        <S.ContentSection aria-labelledby="challenges-title">
+          <h2 id="challenges-title">Challenge &amp; Solution</h2>
+          {project.challenges.map((challenge, index) => (
+            <S.Challenge key={challenge.title} aria-labelledby={`challenge-${index}-title`}>
+              <h3 id={`challenge-${index}-title`}>{challenge.title}</h3>
               <p><strong>문제 정의</strong><br />{challenge.problem}</p>
               <p><strong>해결 방안</strong><br />{challenge.solution}</p>
-            </section>
+            </S.Challenge>
           ))}
-        </section>
-        <p className="back-link"><Link href="/projects/">← 모든 프로젝트</Link></p>
-      </div>
-    </main>
+        </S.ContentSection>
+        <S.BackLink><Link href="/projects/">← 모든 프로젝트</Link></S.BackLink>
+      </S.ProjectDetailBody>
+    </S.PageContent>
   );
 }
