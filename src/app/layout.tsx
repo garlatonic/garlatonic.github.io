@@ -21,7 +21,7 @@ const baskervville = Baskervville({
 });
 
 export const metadata: Metadata = {
-  title: { default: "박상아 · SangA Park — Frontend Developer", template: "%s · 박상아" },
+  title: { default: "박상아 | 프론트엔드 개발", template: "%s | 박상아" },
   description: "사용자의 편의를 설계하는 프론트엔드 개발자 박상아입니다. 3년간의 웹 퍼블리싱 경험을 바탕으로 사용자 중심의 웹을 만듭니다.",
   icons: { icon: "/icon.svg" },
 };
