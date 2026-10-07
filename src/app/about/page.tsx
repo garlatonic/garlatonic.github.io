@@ -45,20 +45,28 @@ export default function About() {
       aria-labelledby="page-title"
       tabIndex={-1}
     >
-      <S.Heading id="page-title">SangA Park · 박상아</S.Heading>
+      <S.Heading id="page-title">About Me</S.Heading>
       <S.Prose>
         <section aria-labelledby="intro-title">
           <S.ScreenReaderHeading as="h2" id="intro-title">
             소개
           </S.ScreenReaderHeading>
           <p>
-            안녕하세요. 작은 디테일이 사용 경험을 바꾼다고 믿는 프론트엔드 개발자 박상아입니다.
+            안녕하세요. 작은 디테일이 사용 경험을 바꾼다고 믿는 프론트엔드
+            개발자 박상아입니다. 디자인의 세부 요소를 꼼꼼하게 구현하는 것은
+            물론, 사용자가 마주하는 디테일에 관심이 많습니다. 별도의 설명 없이도
+            다음 행동을 쉽게 찾고, 기대한 대로 기능을 사용할 수 있는 화면을
+            만드는 데 보람을 느낍니다.
           </p>
           <p>
-            디자인의 세부 요소를 꼼꼼하게 구현하는 것은 물론, 사용자가 기능을 이해하고 이용하는 흐름까지 살핍니다. 별도의 설명 없이도 다음 행동을 쉽게 찾고, 기대한 대로 기능을 사용할 수 있는 화면을 만드는 데 보람을 느낍니다.
+            현재는 3년간의 웹 퍼블리싱 경험을 바탕으로 글로벌 커머스 플랫폼
+            기반의 웹사이트를 개발하고 있습니다. 시각적 완성도뿐 아니라 기능의
+            동작과 사용 편의성을 함께 고민하며, 자연스럽고 직관적인 사용 경험을
+            만들어가고 있습니다.
           </p>
           <p>
-            3년간의 웹 퍼블리싱 경험을 바탕으로, 현재는 글로벌 커머스 플랫폼 기반의 웹사이트를 개발하고 있습니다. 시각적 완성도뿐 아니라 기능의 동작과 사용 편의성을 함께 고민하며, 자연스럽고 직관적인 사용 경험을 만들어가고 있습니다.
+            최근에는 AI를 문서 정리와 코드 이해·검토에 활용하며, 더 효율적인
+            업무 방식을 익히고 있습니다.
           </p>
         </section>
         <S.ContentSection aria-labelledby="competencies-title">
@@ -96,11 +104,15 @@ export default function About() {
               <S.CareerHeading>
                 <h3>{education.title}</h3>
                 <S.CareerLeader aria-hidden="true" />
-                <S.CareerPeriod>{education.period} · {education.status}</S.CareerPeriod>
+                <S.CareerPeriod>
+                  {education.period} · {education.status}
+                </S.CareerPeriod>
               </S.CareerHeading>
               <S.CareerBody>
                 <S.CareerTasks>
-                  {education.activities.map((item) => <li key={item}>{item}</li>)}
+                  {education.activities.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </S.CareerTasks>
               </S.CareerBody>
             </li>
