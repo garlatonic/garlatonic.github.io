@@ -16,7 +16,7 @@ export const projects: Project[] = [
   {
     slug: "naeconcertbutakhae",
     title: "내 콘서트를 부탁해",
-    category: "DevCourse FE×BE Project",
+    category: "데브코스 팀 프로젝트",
     period: "2025.12 – 2026.01",
     description: "공연 예매부터 공연 당일 계획 세우기까지, 모든 과정을 관리할 수 있는 올인원 매니지먼트 플랫폼",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Zod", "TanStack Query", "Kakao Map API"],
@@ -56,7 +56,7 @@ export const projects: Project[] = [
   {
     slug: "freshjb",
     title: "전북생생장터",
-    category: "Practical Project",
+    category: "케이에이치이노베이션",
     period: "2023.10 – 2024.04",
     description: "전북특별자치도 경제통상진흥원에서 운영하는 지역 농가 특산물 온라인 쇼핑몰",
     stack: ["React", "@shopby/react-components", "NHN Shopby"],
@@ -93,7 +93,7 @@ export const projects: Project[] = [
   {
     slug: "pokemonstore",
     title: "포켓몬스토어 온라인",
-    category: "Practical Project",
+    category: "케이에이치이노베이션",
     period: "2023.09 – 2023.10",
     description: "포켓몬 공식 굿즈를 판매하는 온라인 쇼핑몰",
     stack: ["HTML", "CSS", "JavaScript", "jQuery", "Handlebars.js", "Shopby SDK"],
@@ -120,8 +120,8 @@ export const projects: Project[] = [
   {
     slug: "updown",
     title: "업다운",
-    category: "DevCourse FE Project",
-    period: "2025.11",
+    category: "데브코스 팀 프로젝트",
+    period: "2025.11 – 2025.11",
     description: "일상의 감정을 시장 지수처럼 기록·시각화하고, 공감 기반 커뮤니티에서 함께 나누는 감정 기록 서비스",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Zustand"],
     live: "https://fe-7-project-3-team-1.vercel.app/",
@@ -148,7 +148,7 @@ export const projects: Project[] = [
   {
     slug: "chickengalaxy",
     title: "치킨갤럭시",
-    category: "DevCourse FE Project",
+    category: "데브코스 팀 프로젝트",
     period: "2025.10 – 2025.11",
     description: "치킨을 사랑하는, 치킨에 진심인 한국인들을 위한 우주 테마 커뮤니티 서비스",
     stack: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Zustand"],

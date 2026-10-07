@@ -46,7 +46,7 @@ export default async function ProjectDetail({ params }: Props) {
           <p>{project.stack.join(" · ")}</p>
         </S.ContentSection>
         <S.ContentSection aria-labelledby="challenges-title">
-          <h2 id="challenges-title">Challenge &amp; Solution</h2>
+          <h2 id="challenges-title">문제 해결 과정</h2>
           {project.challenges.map((challenge, index) => (
             <S.Challenge key={challenge.title} aria-labelledby={`challenge-${index}-title`}>
               <h3 id={`challenge-${index}-title`}>{challenge.title}</h3>
