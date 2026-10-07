@@ -30,8 +30,8 @@ export default async function ProjectDetail({ params }: Props) {
         <S.ProjectMeta>{project.category} · {project.period}</S.ProjectMeta>
         <p>{project.description}</p>
         <S.ProjectLinks>
-          <a href={project.live}>배포 사이트 ↗</a>
-          {project.repository && <a href={project.repository}>GitHub ↗</a>}
+          <a href={project.live} target="_blank" rel="noopener noreferrer">배포 사이트 ↗</a>
+          {project.repository && <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}
         </S.ProjectLinks>
         <S.ContentSection aria-labelledby="overview-title">
           <h2 id="overview-title">프로젝트 소개</h2>
