@@ -120,7 +120,7 @@ export default function About() {
         </S.ContentSection>
         <S.ContentSection aria-labelledby="project-summary-title">
           <h2 id="project-summary-title">
-            <Link href="/projects/">
+            <Link href="/projects/" scroll={false}>
               프로젝트 요약 <span aria-hidden="true">↗</span>
             </Link>
           </h2>
@@ -129,7 +129,7 @@ export default function About() {
               const project = projects.find((item) => item.slug === slug)!;
               return (
                 <li key={slug}>
-                  <S.ProjectSummaryLink href={`/projects/${slug}/`}>
+                  <S.ProjectSummaryLink href={`/projects/${slug}/`} scroll={false}>
                     <h3>{project.title}</h3>
                     <S.CareerLeader aria-hidden="true" />
                     <S.CareerPeriod>{project.period}</S.CareerPeriod>
