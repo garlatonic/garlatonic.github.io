@@ -127,11 +127,8 @@ export const PageContent = styled.main`
   overflow-wrap: anywhere;
   animation: ${contentFocusIn} 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
   @media (max-width: 899px) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  @media (max-width: 539px) {
     grid-column: 1 / -1;
+    grid-row: 2;
   }
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -145,19 +142,9 @@ export const HomeContent = styled(PageContent)`
     margin: 0;
     word-break: keep-all;
   }
-  @media (max-width: 899px) {
-    max-width: 480px;
-  }
 `;
 
 export const Heading = styled.h1`
-  margin: 0 0 32px;
-  font-size: 1.1428571rem;
-  line-height: 1.7142857rem;
-  font-weight: 500;
-`;
-
-export const ScreenReaderHeading = styled(Heading)`
   position: absolute;
   width: 1px;
   height: 1px;
@@ -169,10 +156,12 @@ export const ScreenReaderHeading = styled(Heading)`
   border: 0;
 `;
 
+export const ScreenReaderHeading = Heading;
+
 const proseStyles = css`
   font-size: 1rem;
   line-height: 1.75;
-  p {
+  p ~ p {
     margin: 12px 0 0;
   }
   a {
