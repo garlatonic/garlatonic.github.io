@@ -1,3 +1,4 @@
+import * as S from "@/styles/components";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { projects } from "@/data/projects";
@@ -6,20 +7,20 @@ export const metadata: Metadata = { title: "프로젝트" };
 
 export default function Projects() {
   return (
-    <main id="main-content" className="page-content">
-      <h1>프로젝트</h1>
-      <ul className="project-list prose">
+    <S.PageContent id="main-content" aria-labelledby="page-title" tabIndex={-1}>
+      <S.Heading id="page-title">프로젝트</S.Heading>
+      <S.ProjectList role="list">
         {projects.map((project) => (
           <li key={project.slug}>
-            <div className="project-title">
+            <S.ProjectTitle>
               <h2><Link href={`/projects/${project.slug}/`}>{project.title}</Link></h2>
               <span>{project.period}</span>
-            </div>
+            </S.ProjectTitle>
             <p>{project.description}</p>
-            <div className="project-stack">{project.stack.join(" · ")}</div>
+            <S.ProjectStack>{project.stack.join(" · ")}</S.ProjectStack>
           </li>
         ))}
-      </ul>
-    </main>
+      </S.ProjectList>
+    </S.PageContent>
   );
 }
