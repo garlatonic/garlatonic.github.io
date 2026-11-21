@@ -1,0 +1,83 @@
+.document-page {
+  --text-3xs: clamp(.5rem, .45rem + .2vw, .625rem);
+  --text-2xs: clamp(.625rem, .6rem + .2vw, .75rem);
+  --text-xs: clamp(.75rem, .7rem + .2vw, .875rem);
+  --text-sm: clamp(.875rem, .82rem + .2vw, 1rem);
+  --text-base: clamp(1rem, .95rem + .2vw, 1.125rem);
+  --text-xl: clamp(1.25rem, 1.1rem + .6vw, 1.5rem);
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  background: #f4f4f5;
+  color: #18181b;
+  color-scheme: light;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+:where(.document-page *, .document-page *::before, .document-page *::after) {
+  box-sizing: border-box;
+  border: 0 solid #e5e5e5;
+  letter-spacing: -.025em;
+}
+:where(.document-sheet) :where(h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, blockquote) {
+  margin: 0;
+  padding: 0;
+}
+:where(.document-sheet) :where(h1, h2, h3, h4, h5, h6) { font: inherit; }
+:where(.document-sheet) :where(ul, ol) { list-style: none; }
+:where(.document-sheet) a { color: inherit; text-decoration: inherit; }
+:where(.document-sheet) :where(img, svg) { display: block; vertical-align: middle; }
+
+.document-sheet {
+  max-width: 56rem;
+  margin-inline: auto;
+  padding: 1rem;
+  background: white;
+}
+
+.document-print {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border-radius: 50%;
+  background: #171717;
+  color: #fafafa;
+  cursor: pointer;
+}
+.document-print:hover { background: #414141; }
+.document-print:focus-visible { outline: 3px solid #aaa; outline-offset: 2px; }
+
+@media (min-width: 40rem) {
+  .document-sheet { padding: 1.25rem 1.5rem; }
+}
+@media (min-width: 48rem) {
+  .document-page { padding-block: 2.5rem; }
+  .document-sheet { padding: 2.25rem 2.5rem; }
+}
+@media (min-width: 64rem) {
+  .document-sheet { padding: 3rem 3.5rem; }
+}
+
+@page portfolio-document {
+  size: A4;
+  margin: 10mm 5mm;
+}
+
+@media print {
+  .document-page {
+    page: portfolio-document;
+    min-height: 0;
+    padding: 0;
+    background: white;
+  }
+  .document-page[data-printable="false"], .document-print, .document-page nextjs-portal { display: none; }
+  .document-sheet { padding: 0 1rem; }
+  .document-sheet a[href] { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .document-sheet :is(h1, h2, h3, h4, h5, h6) { break-after: avoid; }
+}
