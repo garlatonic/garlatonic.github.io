@@ -4,10 +4,10 @@ export const workExperience = [
     "company": "(주)모리엔티드",
     "period": "2026.07 – Present",
     "position": "글로벌마케팅팀 · 대리 · 정규직",
-    "summary": "Shopify 기반 커머스 구축을 위한 테마 개발 및 커스터마이징 방식을 검토하고, 향후 구축 업무를 위한 개발·협업 프로세스를 정리하고 있습니다.",
+    "summary": "영업용 레퍼런스로 활용할 Shopify 자체 데모 스토어를 만들고, 향후 구축 업무를 위한 개발·협업 프로세스를 정리하고 있습니다.",
     "projectSlugs": [],
     "responsibilities": [
-      "Shopify 기반 커머스 구축을 위한 테마 개발 방식 및 기능 검토",
+      "영업용 레퍼런스 확보를 위한 Shopify 자체 데모 스토어 기획·디자인·UI 구현 및 QA",
       "Liquid 기반 Shopify 테마 커스터마이징 및 기능 구현",
       "Shopify 구축 프로세스 및 개발·디자인 협업 기준 정리",
       "Shopify 테마 개발 환경 구성 및 버전 관리"
