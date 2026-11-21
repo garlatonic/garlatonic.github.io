@@ -6,6 +6,7 @@ import { education, workExperience } from '@/data/about';
 import { projects } from '@/data/projects';
 import { coreCompetencies, resumeContact, resumeProjects } from '@/data/resume';
 import { GithubIcon, LinkedinIcon, VelogIcon } from './Icons';
+import profilePhoto from './profile.jpg';
 import styles from './resume.module.css';
 
 export const metadata: Metadata = { title: '이력서' };
@@ -58,7 +59,7 @@ export default function ResumePage() {
               <a href="https://www.linkedin.com/in/garlatonic" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn으로 이동"><LinkedinIcon /></a>
             </nav>
           </div>
-          <Image src="/img/img_resume_profile.jpg" alt="프로필" width={90} height={120} loading="eager" unoptimized />
+          <Image src={profilePhoto} alt="프로필" width={90} height={120} loading="eager" unoptimized />
         </div>
         <section className={styles.introduction} aria-label="자기소개">
           <p>3년간 커머스 플랫폼 퍼블리셔로 일하며 단순한 화면 구현을 넘어, <strong>사용자가 쉽게 이해하고 사용할 수 있는 기능 설계</strong>의 중요성을 체감했습니다.</p>
