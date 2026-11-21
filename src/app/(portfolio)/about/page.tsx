@@ -68,14 +68,16 @@ export default function About() {
             최근에는 AI를 문서 정리와 코드 이해·검토에 활용하며, 더 효율적인
             업무 방식을 익히고 있습니다.
           </p>
-          <S.ProjectLinks>
-            <Link href="/resume/" target="_blank" rel="noopener noreferrer" aria-label="이력서 (새 탭)">
-              이력서 <span aria-hidden="true">↗</span>
-            </Link>
-            <Link href="/career/" target="_blank" rel="noopener noreferrer" aria-label="경력기술서 (새 탭)">
-              경력기술서 <span aria-hidden="true">↗</span>
-            </Link>
-          </S.ProjectLinks>
+          {process.env.NODE_ENV === "development" && (
+            <S.ProjectLinks>
+              <Link href="/resume/" target="_blank" rel="noopener noreferrer" aria-label="이력서 (새 탭)">
+                이력서 <span aria-hidden="true">↗</span>
+              </Link>
+              <Link href="/career/" target="_blank" rel="noopener noreferrer" aria-label="경력기술서 (새 탭)">
+                경력기술서 <span aria-hidden="true">↗</span>
+              </Link>
+            </S.ProjectLinks>
+          )}
         </section>
         <S.ContentSection aria-labelledby="competencies-title">
           <h2 id="competencies-title">핵심 역량</h2>
