@@ -1,5 +1,6 @@
 .studies {
   --note-size: max(0.8571429rem, 12px);
+  --note-color: color-mix(in srgb, var(--muted) 85%, var(--body));
   container-type: inline-size;
   margin-block-start: 60px;
   color: var(--body);
@@ -63,7 +64,7 @@
 .switcher label {
   position: relative;
   padding: 6px 0;
-  color: var(--muted);
+  color: var(--note-color);
   cursor: pointer;
 }
 
@@ -116,7 +117,7 @@
 
 .shot figcaption {
   margin-block-start: 8px;
-  color: var(--muted);
+  color: var(--note-color);
   font-size: var(--note-size);
   line-height: 1.6;
 }
@@ -212,7 +213,7 @@
 .result small,
 .metrics dt {
   display: block;
-  color: var(--muted);
+  color: var(--note-color);
   font-size: var(--note-size);
   line-height: 1.5;
 }
@@ -303,7 +304,7 @@
   flex-wrap: wrap;
   gap: 2px 0.55em;
   margin-block-start: 12px;
-  color: var(--muted);
+  color: var(--note-color);
   font-size: var(--note-size);
   line-height: 1.6;
 }
