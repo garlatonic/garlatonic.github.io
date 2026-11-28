@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
+import ProjectChallenge from "./ProjectChallenge";
+import styles from "./challenge.module.css";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -45,16 +47,12 @@ export default async function ProjectDetail({ params }: Props) {
           <h2 id="stack-title">사용 기술</h2>
           <p>{project.stack.join(" · ")}</p>
         </S.ContentSection>
-        <S.ContentSection aria-labelledby="challenges-title">
-          <h2 id="challenges-title">문제 해결 과정</h2>
+        <section className={styles.studies} aria-labelledby="challenges-title">
+          <h2 id="challenges-title" className={styles.studyHeading}>문제 해결 과정</h2>
           {project.challenges.map((challenge, index) => (
-            <S.Challenge key={challenge.title} aria-labelledby={`challenge-${index}-title`}>
-              <h3 id={`challenge-${index}-title`}>{challenge.title}</h3>
-              <p><strong>문제 정의</strong><br />{challenge.problem}</p>
-              <p><strong>해결 방안</strong><br />{challenge.solution}</p>
-            </S.Challenge>
+            <ProjectChallenge key={challenge.title} challenge={challenge} titleId={`challenge-${index}-title`} />
           ))}
-        </S.ContentSection>
+        </section>
         <S.BackLink><Link href="/projects/" scroll={false}>← 모든 프로젝트</Link></S.BackLink>
       </S.ProjectDetailBody>
     </S.PageContent>

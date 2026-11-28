@@ -1,0 +1,325 @@
+.studies {
+  --note-size: max(0.8571429rem, 12px);
+  container-type: inline-size;
+  margin-block-start: 60px;
+  color: var(--body);
+  word-break: keep-all;
+}
+
+.studyHeading {
+  line-height: 1.5;
+  scroll-margin-block-start: 24px;
+}
+
+.studyHeading,
+.challenge h3,
+.metrics dd {
+  font-size: 1.1428571rem;
+  font-weight: 500;
+}
+
+.challenge {
+  margin-block-start: clamp(24px, 4cqw, 36px);
+}
+
+.challenge + .challenge {
+  margin-block-start: clamp(52px, 8cqw, 80px);
+}
+
+.challenge h3 {
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+.lead {
+  margin-block-start: 10px;
+}
+
+.caseBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 24px clamp(24px, 3.5cqw, 40px);
+  margin-block-start: clamp(22px, 3cqw, 30px);
+}
+
+.evidence {
+  min-width: 0;
+}
+
+.evidence > .disclosure {
+  margin-block-start: 16px;
+}
+
+.comparison {
+  margin: 0;
+}
+
+.switcher {
+  display: flex;
+  gap: 16px;
+}
+
+.switcher label {
+  position: relative;
+  padding: 6px 0;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.switcher input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.switcher label:has(:focus-visible) {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.switcher label:has(:checked) {
+  color: var(--foreground);
+}
+
+.switcher label:has(:checked),
+.switcher label:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.stage {
+  margin-block-start: 6px;
+}
+
+.versionPanel {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.comparison:has(input[value="before"]:checked) [data-version="after"],
+.comparison:has(input[value="after"]:checked) [data-version="before"] {
+  display: none;
+}
+
+.shot {
+  margin: 0;
+}
+
+.shot + .shot {
+  margin-block-start: 24px;
+}
+
+.shot figcaption {
+  margin-block-start: 8px;
+  color: var(--muted);
+  font-size: var(--note-size);
+  line-height: 1.6;
+}
+
+.shot figcaption strong {
+  display: block;
+  color: var(--body);
+  font-weight: 500;
+}
+
+.shot figcaption span {
+  display: block;
+  margin-block-start: 3px;
+}
+
+.frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.imageDialog {
+  max-width: calc(100% - 2rem);
+  max-height: calc(100% - 2rem);
+  margin: auto;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  overscroll-behavior: contain;
+}
+
+.imageDialog::backdrop {
+  background: rgb(0 0 0 / 65%);
+}
+
+:global(html):has(.imageDialog[open]) {
+  overflow: hidden;
+}
+
+.dialogContent {
+  padding: clamp(12px, 2vw, 24px);
+}
+
+.dialogContent img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 10rem);
+  margin-inline: auto;
+}
+
+.dialogFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-block-start: 8px;
+}
+
+.dialogFooter button {
+  flex: none;
+  padding: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dialogFooter button:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.highlight {
+  position: absolute;
+  border: 1.5px solid var(--foreground);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.result {
+  min-width: 0;
+}
+
+.result small,
+.metrics dt {
+  display: block;
+  color: var(--muted);
+  font-size: var(--note-size);
+  line-height: 1.5;
+}
+
+.result small {
+  margin-block-end: 4px;
+}
+
+.metrics {
+  display: grid;
+  gap: 16px;
+  margin-block-start: clamp(20px, 4.5cqw, 40px);
+}
+
+.metrics dd {
+  color: var(--foreground);
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+
+.supplement {
+  margin-block-start: 22px;
+}
+
+.disclosure + .disclosure {
+  margin-block-start: 4px;
+}
+
+.disclosure summary {
+  position: relative;
+  display: block;
+  padding-block: 10px;
+  padding-inline-end: 24px;
+  color: var(--body);
+  line-height: 1.65;
+  list-style: none;
+  cursor: pointer;
+}
+
+.disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.disclosure summary::before,
+.disclosure summary::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 2px;
+  top: 50%;
+  width: 10px;
+  border-block-start: 1px solid currentColor;
+}
+
+.disclosure summary::after {
+  transform: rotate(90deg);
+}
+
+.disclosure[open] summary::after {
+  display: none;
+}
+
+.disclosure summary:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.disclosure .comparison,
+.disclosure pre {
+  margin-block: 4px 16px;
+}
+
+.disclosure pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 6px 16px;
+  font: 1rem/1.7 ui-monospace, Consolas, monospace;
+  tab-size: 2;
+}
+
+.studies :focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 0.55em;
+  margin-block-start: 12px;
+  color: var(--muted);
+  font-size: var(--note-size);
+  line-height: 1.6;
+}
+
+.keywords li:not(:last-child)::after {
+  content: "·";
+  margin-inline-start: 0.55em;
+}
+
+@media (min-width: 900px) {
+  .caseBody:has(> .evidence) {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  }
+
+  .caseBody:has(> .evidence) > .result {
+    position: sticky;
+    top: var(--page-y);
+  }
+}

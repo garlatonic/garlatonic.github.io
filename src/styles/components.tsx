@@ -281,22 +281,6 @@ export const RoleList = styled.ul`
   margin-block-start: 16px;
 `;
 
-export const Challenge = styled.section`
-  margin-block-start: 32px;
-  h3 {
-    margin: 0;
-    font-size: inherit;
-    font-weight: 500;
-  }
-  p {
-    margin-block-start: 16px;
-  }
-  strong {
-    font-weight: 400;
-    color: var(--muted);
-  }
-`;
-
 export const BackLink = styled.p`
   padding-block-start: 32px;
 `;
