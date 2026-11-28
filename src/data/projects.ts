@@ -1,3 +1,10 @@
+import { concertChallenges } from "./project-challenges/concert";
+import { freshjbChallenges } from "./project-challenges/freshjb";
+import { pokemonstoreChallenges } from "./project-challenges/pokemonstore";
+import { updownChallenges } from "./project-challenges/updown";
+import { chickengalaxyChallenges } from "./project-challenges/chickengalaxy";
+import type { Challenge } from "./project-challenges/types";
+
 export type Project = {
   slug: string;
   title: string;
@@ -9,7 +16,7 @@ export type Project = {
   repository?: string;
   introduction: string[];
   roles: string[];
-  challenges: { title: string; problem: string; solution: string }[];
+  challenges: Challenge[];
 };
 
 export const projects: Project[] = [
@@ -35,23 +42,7 @@ export const projects: Project[] = [
       "TanStack Query 캐싱 전략 적용 및 Lighthouse 성능 개선",
       "백엔드 협업 경험"
     ],
-    challenges: [
-      {
-        title: "외출플래너 입력 과정 단순화",
-        problem: "외출플래너 기능의 초기 작업 당시 사용자가 식사·이동·대기·기타 타입의 모든 일정을 여러 단계에 걸쳐 반복 입력해야 해 피로도가 높았습니다. 일정의 등록이나 수정, 삭제와 같은 기본적인 기능은 동작했지만 실제 사용 흐름에서는 입력 횟수가 많아 이탈 가능성이 큰 구조였습니다.",
-        solution: "각 목적지가 있는 일정의 경우 이동 항목이 자동으로 생성되는 방식으로 UX를 재설계해 사용자 입력 횟수를 최소화했습니다. 복잡하게 모든 일정 타입을 등록하는 기존 방식에서 입력 흐름 자체를 다시 설계함으로써 사용자가 더 적은 행동으로 같은 목표를 달성할 수 있도록 개선했습니다."
-      },
-      {
-        title: "검색 API 과호출 최적화",
-        problem: "검색 입력 시 사용자의 타이핑마다 API 요청이 발생했습니다. 불필요한 API 요청으로 서버 리소스를 낭비하고, 네트워크 상황에 따라 응답이 지연되거나 사용자 경험이 떨어질 가능성이 있었습니다.",
-        solution: "연속된 입력값에 Debounce 기법을 적용해 검색 요청을 제어했고, 평균 API 호출 횟수를 6회에서 1회로 줄였습니다. 이를 통해 사용자는 더 안정적인 검색 경험을 얻고, 서비스는 불필요한 요청을 줄일 수 있었습니다."
-      },
-      {
-        title: "TanStack Query 캐싱 전략 적용",
-        problem: "기존 메인 페이지에서 공연 목록 조회 → 공연 ID별 티켓팅 플랫폼 정보 조회 → 슬라이드 렌더링 순으로 진행되어 초기 렌더링 시 로딩이 길어졌습니다. 최악의 경우 서버 렌더링이 지연되어 메인 페이지 접근까지 수초가 소요되는 문제가 발생했습니다.",
-        solution: "자주 변경되지 않는 공연·아티스트 목록에 1시간 캐싱 전략을 적용하고, 메인 페이지 진입 시 가장 먼저 노출되는 공연 목록에는 prefetch 전략을 추가 적용했습니다. 그 결과 FCP가 2.1초 → 1.2초, LCP가 28.9초 → 16.2초로 개선되었습니다."
-      }
-    ]
+    challenges: concertChallenges
   },
   {
     slug: "freshjb",
@@ -72,23 +63,7 @@ export const projects: Project[] = [
       "복수 배송지별 상품·수량 지정과 수량 검증, 주문상세의 배송지별 내역 표시 구현",
       "체험단 게시판의 댓글 CRUD 구현 및 모달 기반 인터랙션 구현"
     ],
-    challenges: [
-      {
-        title: "복수 배송지 기능 커스텀 구현",
-        problem: "기존 Shopby 플랫폼은 주문당 배송지를 하나만 지원해, 여러 주소로 상품을 보내려면 배송지마다 주문을 반복해야 했습니다.",
-        solution: "주문서 API를 활용해 배송지별로 상품과 수량을 지정하고, 배정 수량이 전체 주문 수량과 일치하는지 검증했습니다. 주문상세에도 배송지별 내역을 표시해 여러 주소로 주문한 내용을 확인할 수 있도록 했습니다."
-      },
-      {
-        title: "체험단 게시판 댓글 기능 구현",
-        problem: "체험단 게시판은 사용자 참여와 소통이 핵심인 공간이지만, Shopby 플랫폼의 기본 게시판 기능으로는 댓글을 지원하지 않아 사용자 간 자유로운 소통이 불가능한 문제가 있었습니다.",
-        solution: "Shopby에서 제공하는 게시판 API의 하위 게시글 기능을 활용해 댓글 CRUD를 직접 구현했습니다. 체험단 게시판이 아닌 경우 댓글 영역이 노출되지 않도록 조건부 렌더링을 적용했고, 댓글 수정 시 모달 인터랙션을 추가해 사용자 경험을 개선했습니다. 플랫폼이 지원하지 않는 기능을 사용자 흐름에 맞게 커스텀 개발하여 고객사 요구사항을 충족했습니다."
-      },
-      {
-        title: "헤더 미니카트와 장바구니 수량 불일치 해결",
-        problem: "헤더의 미니카트에 표시되는 수량과 실제 장바구니 페이지의 수량이 일치하지 않는 문제가 있었습니다. 장바구니 수량이 변경되었음에도 헤더 영역이 즉시 갱신되지 않아, 사용자가 보는 화면에 따라 다른 수량이 표시되는 상황이었습니다. 이는 주문 직전 단계에서 혼란을 유발하고 서비스 신뢰도를 떨어뜨릴 수 있는 문제라고 판단했습니다.",
-        solution: "장바구니 수량 변경 이후 헤더 미니카트 영역이 다시 렌더링되도록 상태 갱신 흐름을 점검하고 수정했습니다. 장바구니 페이지에서 수량이 변경되었을 때 헤더에도 최신 수량이 반영되도록 개선했고, 사용자가 어느 화면에서든 일관된 장바구니 상태를 확인할 수 있도록 안정성을 높였습니다."
-      }
-    ]
+    challenges: freshjbChallenges
   },
   {
     slug: "pokemonstore",
@@ -109,13 +84,7 @@ export const projects: Project[] = [
       "운영 요구사항에 맞춘 상품 · 콘텐츠 UI 구성",
       "브랜드 경험을 유지한 커스텀 게시판 UI 구현"
     ],
-    challenges: [
-      {
-        title: "플랫폼 미지원 갤러리형 게시판 UI 구현",
-        problem: "기본 게시판 UI만으로는 이벤트 콘텐츠를 브랜드에 맞는 방식으로 보여주기 어려웠습니다. 단순 리스트 구조로는 시각적 매력이 부족했고, 사용자 입장에서도 콘텐츠를 직관적으로 탐색하기 어려웠습니다.",
-        solution: "Vanilla JavaScript로 갤러리형 게시판 UI를 직접 구현해 상품과 이벤트 이미지를 카드 형태로 노출하도록 구성했습니다. 이를 통해 콘텐츠 가독성과 탐색성을 높이고, 브랜드 특성에 맞는 시각적 경험을 강화했습니다."
-      }
-    ]
+    challenges: pokemonstoreChallenges
   },
   {
     slug: "updown",
@@ -137,13 +106,7 @@ export const projects: Project[] = [
       "무한스크롤 피드, 감정 지수·트렌드 시각화, 다크모드·반응형 UI 구현",
       "공통 컴포넌트 설계 및 Loading/Empty/Error 상태 UI 구현"
     ],
-    challenges: [
-      {
-        title: "감정 트렌드 시각화 로직 설계",
-        problem: "감정 데이터는 단순한 숫자나 텍스트 목록만으로는 커뮤니티의 분위기와 흐름을 빠르게 이해하기 어려웠습니다. 특히 지금 어떤 감정이 많이 공유되는지, 어제 대비 감정 변화는 어떤지를 직관적으로 전달할 방법이 필요했습니다.",
-        solution: "오늘과 어제의 해시태그 데이터를 날짜 범위 기준으로 각각 조회한 뒤, 태그별 랭킹과 증감률을 계산해 시각화용 데이터로 가공했습니다. 이를 통해 실시간 TOP 3 감정과 트렌드 태그를 한눈에 보여줄 수 있었고, 사용자는 커뮤니티 분위기와 감정 흐름 변화를 더 직관적으로 파악할 수 있었습니다."
-      }
-    ]
+    challenges: updownChallenges
   },
   {
     slug: "chickengalaxy",
@@ -166,12 +129,6 @@ export const projects: Project[] = [
       "검색 시스템 설계 전체 구현",
       "성능 최적화 및 상태별 UI 안정성 개선"
     ],
-    challenges: [
-      {
-        title: "React Compiler 도입으로 렌더링 성능 개선",
-        problem: "검색 결과 페이지에서 검색어 입력 시 상태가 변경될 때마다, 하위의 모든 게시글 컴포넌트가 불필요하게 리렌더링되는 문제가 있었습니다. useMemo/useCallback을 수동으로 관리하기에는 컴포넌트 수가 많아 일관된 최적화 적용이 어려웠습니다.",
-        solution: "React Compiler를 도입해 컴파일 단계에서 자동 메모이제이션을 적용했습니다. 수동으로 useMemo/useCallback을 작성하지 않아도 컴포넌트별 불필요한 리렌더링이 방지되어 검색 결과 목록의 반응 속도가 개선되었습니다."
-      }
-    ]
+    challenges: chickengalaxyChallenges
   }
 ];
